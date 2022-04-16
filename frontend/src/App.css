@@ -46,12 +46,20 @@
 
 html{
   background-color: #C4C4C4;
+  overflow-y:scroll; /* make scrollbar always visible */
+}
+
+.postsContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 15px;
 }
 
 
 
-
-/*  Below is taken from https://www.cameronsworld.net/*/
+/*  Below is taken from https://www.cameronsworld.net/ to create the scrollbar*/
 .modal-open .modal-scroll,
 .old-school-scroll::-webkit-scrollbar,
 .section.id-23 .frame .horizontal-scroll-container::-webkit-scrollbar,

@@ -7,7 +7,7 @@ export default class Header extends Component{
 
   }
 
-
+//TODO make header, post, post(s) and createPost componenets
 render(){
     return(
         <h1>NetFourm</h1>

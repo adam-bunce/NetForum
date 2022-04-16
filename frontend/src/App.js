@@ -4,7 +4,8 @@ import React, { Component }  from 'react'
 import FileBase from 'react-file-base64'
 
 
-import Header from './components/Header'
+import Header from './components/Header/Header'
+import Post from './components/Post/Post'
 
 class App extends Component{
   constructor(props){
@@ -19,6 +20,7 @@ class App extends Component{
     this.createPost = this.createPost.bind(this);
     this.setInputtedFile = this.setInputtedFile.bind(this);
     this.setText = this.setText.bind(this);
+    this.createList = this.createList.bind(this);
   }
 
 
@@ -87,6 +89,25 @@ componentDidMount(){
   this.getPosts()
 }
 
+
+createList(){
+  var items = [];
+
+  for (let i = 0; i < this.state.posts.length; i++){
+      
+      // each child should have a key value, but im using idNumber to do somethign similar
+      items.push
+          (
+              <Post postData = {this.state.posts[i]}/>
+          );
+  }
+  
+  return items;
+}
+
+
+
+
   render(){
 
     if (!this.state.posts){
@@ -122,11 +143,20 @@ componentDidMount(){
         </form>
      
         <div>{this.setText()}</div>
-        <div><img src={ this.state.posts[4].selectedFile } width="200px" alt="Red dot"/></div>
+        {/* <div><img src={ this.state.posts[4].selectedFile } width="200px" alt="Red dot"/></div> */}
+        {/* loop through all data in Posts and map data to Post (singular) and then create the Posts component 
+        currently sinular for testing*/}
+
+
+        <div className='postsContainer'>
+          {this.createList()}
+        </div>
+
+
         {this.state.inputBoxText}
       </div>
       );
     }
 }
 
-export default App;
+export default App; 
