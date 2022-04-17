@@ -1,0 +1,15 @@
+.postFormBox{
+    font-family: sans-serif;
+    text-align: left;
+    font-size: large;
+
+	border-top: 3px solid #FBFBFB;
+	border-left: 3px solid #FBFBFB;
+	border-right: 3px solid #080808;
+	border-bottom: 3px solid #000000;   
+    background-color: #CCCCCC;
+    width: min-content;
+    white-space: nowrap;
+
+    padding: .1% .1% .1% .1%;
+}
