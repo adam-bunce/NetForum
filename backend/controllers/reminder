@@ -1,0 +1,4 @@
+cant test these in postman anymore because the thread/post ID must be unique and
+its generated based off of the env variable
+
+to test make sure youre sending all the data specified in the model/in the postForm component

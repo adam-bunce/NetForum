@@ -4,10 +4,11 @@ const postSchema = mongoose.Schema({
     postID: {
         type: Number,
         required: [true, 'add a post ID'],
+        unique: true // r9k angle
     },
     postText: {
         type: String,
-        required: [true, 'please add an email'],
+        required: [true, 'post needs text'],
         unique: true // r9k angle
     },
     selectedFile: {

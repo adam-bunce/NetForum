@@ -22,7 +22,7 @@ app.use(express.json({limit: '5mb'})) // need to set(increase) json size limit h
 
 
 app.use('/api/posts', require('./routes/postRoute'))
-
+app.use('/api/threads', require('./routes/threadRoutes'))
 
 app.listen(port, ()=>{
     console.log(`server started at http://localhost:${port}`)
