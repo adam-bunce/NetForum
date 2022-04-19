@@ -1,0 +1,56 @@
+.threadBox {
+    font-family: sans-serif;
+    text-align: left;
+    font-size: x-large;
+	border-top: 3px solid #FBFBFB;
+	border-bottom: 3px solid #000000;   
+    background-color: #CCCCCC;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    width: 33%;
+    padding: 1% 1% 1% 1%;
+
+}
+.threadBox:hover{
+    background-color: #E5E5E5;
+}
+
+
+/* media breakpoint to format threads for mobile*/
+@media all and (max-width: 1024px) {
+    .threadBox{
+      width: 90%;
+     
+    }
+  }
+
+.threadMetaData {
+    font-family: sans-serif;
+    text-align: left;
+    font-size: large;
+	border-top: 3px solid #FBFBFB;
+	border-left: 3px solid #FBFBFB;
+	border-right: 3px solid #080808;
+	border-bottom: 3px solid #000000;   
+    background-color: #CCCCCC;
+    width: min-content;
+    white-space: nowrap;
+    padding: .1% .1% .1% .1%;
+ 
+}
+
+.dib{
+    display: inline-block;
+}
+
+.mouseOverThread{
+    cursor: pointer;
+}
+
+.lineDiv{
+    border-top: 1.5px solid #000000;
+    border-bottom: 1.5px solid #FBFBFB;  
+}
+

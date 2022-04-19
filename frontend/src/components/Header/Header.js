@@ -9,6 +9,6 @@ export default class Header extends Component{
   // TODO make the header look better
   render(){
       return(
-          <h1>NetFourm</h1>
+          <h1 > {this.props.text} </h1>
       )}
 }

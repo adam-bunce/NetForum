@@ -4,7 +4,7 @@ const postSchema = mongoose.Schema({
     postID: {
         type: Number,
         required: [true, 'add a post ID'],
-        unique: true // r9k angle
+        // unique: true // r9k angle this is commented out but still needs to be unique??
     },
     postText: {
         type: String,

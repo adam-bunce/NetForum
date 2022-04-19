@@ -1,0 +1,29 @@
+import { React, Component }  from 'react';
+import './thread.css'
+
+export default class Thread extends Component{
+  constructor(props){
+    super(props)
+    }
+    render(){
+        // render the post image only if it exists
+        let threadImage;
+        if (this.props.threadData.threadImage != null){
+            
+            threadImage = 
+                <div className='dib'> 
+                    <img id="image" src={this.props.threadData.threadImage} alt="threadImage" width="100%"/> 
+                </div>
+        }else{
+            threadImage = <div></div>
+        }
+
+        return(
+            <div className='threadBox mouseOverThread'>
+                {threadImage}
+                <div>{this.props.threadData.threadText}</div>
+                <div className='threadMetaData'>Created: {this.props.threadData.createdAt} </div>
+            </div>
+            
+    )}
+}

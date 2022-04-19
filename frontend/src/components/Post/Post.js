@@ -1,7 +1,7 @@
 import { React, Component }  from 'react';
 import './post.css'
 
-export default class Header extends Component{
+export default class Post extends Component{
   constructor(props){
     super(props)
 

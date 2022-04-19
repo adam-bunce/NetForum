@@ -37,6 +37,7 @@ export default class PostForm extends Component{
   render(){
       return(
         <form className='postFormBox'>
+            Add Post <br/>
             <input type="text" onChange={this.setInputtedTextToVariable}></input><br/>
             <FileBase type='file' multiple={false} onDone={({base64}) => this.setState({filename: base64}) }/>
             <br></br>
