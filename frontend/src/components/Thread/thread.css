@@ -9,8 +9,12 @@
     margin-right: 1%;
     margin-bottom: 1%;
     margin-top: 1%;
-    width: 33%;
+
+    width: 50%;
+
     padding: 1% 1% 1% 1%;
+
+    width: 100%;
 
 }
 .threadBox:hover{
@@ -38,6 +42,7 @@
     width: min-content;
     white-space: nowrap;
     padding: .1% .1% .1% .1%;
+    
  
 }
 

@@ -13,3 +13,9 @@
 
     padding: .1% .1% .1% .1%;
 }
+
+
+.centerBox{
+    display: flex;
+    width: 100%;
+}

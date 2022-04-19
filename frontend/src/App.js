@@ -1,7 +1,7 @@
 import './App.css';
 import axios from 'axios'
 import React, { Component }  from 'react'
-
+import {BrowserRouter , Routes, Route, Link} from 'react-router-dom'
 import Header from './components/Header/Header'
 
 import PostForm from './components/postForm/PostForm'
@@ -57,7 +57,7 @@ class App extends Component{
         <>
           <Header text="NetForum" />
           <div className='loadingData'>
-              <img src="output-onlinegiftools.gif"></img>
+              <img src="output-onlinegiftools.gif" alt="loading Image"></img>
           </div>
         </>)
 
@@ -65,18 +65,27 @@ class App extends Component{
 
     return (
       <>
-        <Header text="NetForum"/>
 
-        <ThreadForm />
+          <BrowserRouter>
+            <Header text="NetForum"/>
 
-        <Header text="Threads"/>
-        <Threads threadData = {this.state.threads}/>
+          
+            <Routes>
+            
+              <Route path="/" element={<Threads threadData = {this.state.threads}/>} />
+              <Route path="/thread0" element={<Posts posts={this.state.posts} />} />
+              <Route path="*" element={<img src="21.gif"></img>} />
+            
+            </Routes>
+          </BrowserRouter>
 
+      
+          {/* <Threads threadData = {this.state.threads}/> */}
         {/* <PostForm />
         <Posts posts={this.state.posts} /> */}
-      </>
+        </>
       );
-    }
+    } 
 }
 
 export default App; 

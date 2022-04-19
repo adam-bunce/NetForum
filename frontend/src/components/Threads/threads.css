@@ -1,16 +1,56 @@
 .threadContainer{
+  
+  display: flex;
+  display: inline-block;
+    outline: solid pink 1px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    width: min-content;
   
   }
 
 .centerBox{
+  outline:  solid orange 1px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+}
+
+
+
+
+.linkStyle{
+
+  outline:  solid red 1px;
+  text-decoration: none;
+  width: 40%;
+  margin: 1% 1% 1% 1%;
+
+
+}
+
+
+.links{
+  outline:  solid green 1px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+
+/* media breakpoint to format threads for mobile*/
+@media all and (max-width: 1024px) {
+  .linkStyle{
+    width: 90%;
+   
+  }
 }

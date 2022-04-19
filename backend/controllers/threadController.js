@@ -38,6 +38,10 @@ const setThread = asyncHandler(async (req, res) => {
 const deleteThread = asyncHandler(async (req,res) => {
     const thread = await Thread.find(req.body.id)
     
+
+    // find all posts with (threadId (req.body.threadId)), import Post schema
+    // then delete all of those from thedb, then the thread..
+
     await thread.remove()
 
     res.status(200).json({message: 'THREAD REMOVED'})

@@ -36,6 +36,7 @@ export default class PostForm extends Component{
 
   render(){
       return(
+        <div className='centerBox'>
         <form className='postFormBox'>
             Add Post <br/>
             <input type="text" onChange={this.setInputtedTextToVariable}></input><br/>
@@ -43,6 +44,7 @@ export default class PostForm extends Component{
             <br></br>
             <input type="submit"  value="Post" onClick={this.createPost}></input>
         </form>
+        </div>
       )
   }
 
