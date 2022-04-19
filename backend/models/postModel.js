@@ -6,6 +6,10 @@ const postSchema = mongoose.Schema({
         required: [true, 'add a post ID'],
         // unique: true // r9k angle this is commented out but still needs to be unique??
     },
+    inThread: {
+        type: Number,
+        required: [true, 'add a thread number'],
+    },
     postText: {
         type: String,
         required: [true, 'post needs text'],

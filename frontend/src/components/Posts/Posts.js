@@ -4,22 +4,55 @@ import Post from '../Post/Post'
 import PostForm from '../postForm/PostForm';
 import Header from '../Header/Header';
 
+
+import {BrowserRouter , Routes, Route, Link} from 'react-router-dom'
+
 export default class Posts extends Component{
   constructor(props){
     super(props)
+    this.state = {image_size: '20%'}
+    this.changeImageSize = this.changeImageSize.bind(this);
+    }
 
-  }
+    // might need to change this depending on image size
+    changeImageSize(){
+        if (this.state.image_size === 'auto'){
+            this.setState({image_size: '20%'})
+        }else{
+            this.setState({image_size: 'auto'})
+        }
+    }
 
+    
   render(){
+    let threadImage;
+    if (this.props.thread.threadImage){
+        threadImage = <div onClick={this.changeImageSize}> 
+        <img id="image" className='mouseOverImage' src={this.props.thread.threadImage} 
+        width={this.state.image_size} alt="postImage" /> 
+    </div>
+    }
+
+  
       return(
         <>
-        <PostForm />
+        <PostForm threadID = {this.props.thread.threadID}/>
+
+      
+
+       <Header text={ `Posts In Thread ` + this.props.thread.threadID}/>
 
 
-       <Header text="Posts"/>
-
+     
         <div className='postsContainer'>
-        {this.props.posts.map( x => <Post postData = {x}/>)}
+            <Link  to="/"> [back to catalog]</Link>
+          <div className='borderBox'> <div className='postMetaData'><u className='OP'> OP </u>
+            {this.props.thread.createdAt}</div>
+            {threadImage}
+            {this.props.thread.threadText}
+          </div>
+
+          {this.props.posts.map( x => <Post postData = {x}/>)}
         </div>
         </>
       )

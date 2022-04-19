@@ -33,7 +33,7 @@ export default class Post extends Component{
 
         return(
             <div className='borderBox'>
-                <div className='postMetaData'>ID {this.props.postData.postID}, {this.props.postData.createdAt} </div>
+                <div className='postMetaData'>ID {this.props.postData.postID}, {this.props.postData.createdAt} , In Thread: {this.props.postData.inThread}</div>
                 <div>{this.props.postData.postText}</div>
                 {postImage}
             </div>

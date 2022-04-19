@@ -4,4 +4,11 @@
     justify-content: space-between;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 5%;
+  }
+
+  .OP{
+    color: #9999FF;
+    text-decoration: none; /* underline element remove underline lol*/
+    font-size: larger;
   }

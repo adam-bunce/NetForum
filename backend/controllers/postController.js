@@ -27,6 +27,7 @@ const setPost = asyncHandler(async (req, res) => {
 
     const post = await Post.create({
         postID: process.env.POSTCOUNT,
+        inThread: req.body.inThread,
         postText: req.body.postText,
         selectedFile: req.body.selectedFile || null
     })

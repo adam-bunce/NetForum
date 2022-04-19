@@ -12,7 +12,7 @@ export default class Thread extends Component{
             
             threadImage = 
                 <div className='dib'> 
-                    <img id="image" src={this.props.threadData.threadImage} alt="threadImage" width="100%"/> 
+                    <img id="image" src={this.props.threadData.threadImage} alt="threadImage" width="55%"/> 
                 </div>
         }else{
             threadImage = <div></div>
@@ -22,7 +22,7 @@ export default class Thread extends Component{
             <div className='threadBox mouseOverThread'>
                 {threadImage}
                 <div>{this.props.threadData.threadText}</div>
-                <div className='threadMetaData'>Created: {this.props.threadData.createdAt} </div>
+                <div className='threadMetaData'> ID: {this.props.threadData.threadID} Created: {this.props.threadData.createdAt} </div>
             </div>
             
     )}

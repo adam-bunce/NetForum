@@ -11,6 +11,8 @@ import ThreadForm from './components/threadForm/ThreadForm';
 import Thread from './components/Thread/Thread';
 import Threads from './components/Threads/Threads';
 
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+
 
 class App extends Component{
   constructor(props){
@@ -69,11 +71,20 @@ class App extends Component{
           <BrowserRouter>
             <Header text="NetForum"/>
 
-          
+            <ScrollToTop /> 
             <Routes>
             
               <Route path="/" element={<Threads threadData = {this.state.threads}/>} />
-              <Route path="/thread0" element={<Posts posts={this.state.posts} />} />
+
+
+
+          
+              {/* filter the posts being passed in to the posts prop by filter the json posts object basedon the threadID (x.threadID) and the post's object's inThread attribute */}
+              {this.state.threads.map( x => <Route path={`/thread` + x.threadID} element={<Posts posts={this.state.posts.filter(post => post.inThread == x.threadID)} thread = {x}/>} />)}
+
+
+
+
               <Route path="*" element={<img src="21.gif"></img>} />
             
             </Routes>

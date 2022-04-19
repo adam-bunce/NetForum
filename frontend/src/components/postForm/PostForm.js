@@ -20,7 +20,7 @@ export default class PostForm extends Component{
   // create post using api call and information inputted into form
     async createPost(){
         try{
-            await axios.post("http://localhost:8000/api/posts", {postText: this.state.inputBoxText, selectedFile: this.state.filename || null})
+            await axios.post("http://localhost:8000/api/posts", {postText: this.state.inputBoxText, inThread: this.props.threadID, selectedFile: this.state.filename || null})
         }catch (error){
             console.log(error.message)
         }

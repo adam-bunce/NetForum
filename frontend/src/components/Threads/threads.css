@@ -2,7 +2,7 @@
   
   display: flex;
   display: inline-block;
-    outline: solid pink 1px;
+    /* outline: solid pink 1px; */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -13,7 +13,7 @@
   }
 
 .centerBox{
-  outline:  solid orange 1px;
+  /* outline:  solid orange 1px; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -26,17 +26,18 @@
 
 .linkStyle{
 
-  outline:  solid red 1px;
+  /* outline:  solid red 1px; */
   text-decoration: none;
   width: 40%;
   margin: 1% 1% 1% 1%;
+  
 
 
 }
 
 
 .links{
-  outline:  solid green 1px;
+  /* outline:  solid green 1px; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
