@@ -47,9 +47,10 @@ export default class Posts extends Component{
         <div className='postsContainer'>
             <Link  to="/"> [back to catalog]</Link>
           <div className='borderBox'> <div className='postMetaData'><u className='OP'> OP </u>
-            {this.props.thread.createdAt}</div>
+            {this.props.thread.createdAt}  <br/> threadID: {this.props.thread._id}</div>
             {threadImage}
             {this.props.thread.threadText}
+          
           </div>
 
           {this.props.posts.map( x => <Post postData = {x}/>)}

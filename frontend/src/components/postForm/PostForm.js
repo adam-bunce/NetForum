@@ -21,9 +21,11 @@ export default class PostForm extends Component{
     async createPost(){
         try{
             await axios.post("http://localhost:8000/api/posts", {postText: this.state.inputBoxText, inThread: this.props.threadID, selectedFile: this.state.filename || null})
+            
         }catch (error){
             console.log(error.message)
         }
+       
   }
   
   setInputtedTextToVariable(event){

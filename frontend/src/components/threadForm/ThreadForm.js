@@ -26,6 +26,7 @@ export default class ThreadForm extends Component{
         }catch (error){
             console.log(error.message)
         }
+
   }
   
   setInputtedTextToVariable(event){

@@ -12,7 +12,7 @@ export default class Threads extends Component{
   }
 
   render(){
-     
+  
       return(
         <>
           <ThreadForm />
@@ -22,7 +22,7 @@ export default class Threads extends Component{
           <div className='links'>
           {/* each thread should have its own onclick redirect thing that renders the posts with that thread ID */}
       
-          {this.props.threadData.map( x => 
+          {this.props.threadData.reverse().map( x => 
           
             <Link className='linkStyle' to={`/thread` + x.threadID} >
               <Thread threadData = {x}/>

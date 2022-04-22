@@ -1,6 +1,6 @@
 // dont need try or catches now cause of this
-const asyncHandler = require('express-async-handler')
-const dotenv = require('dotenv').config()
+const asyncHandler = require('express-async-handler');
+const { findById } = require('../models/postModel');
 
 // post schema/model
 const Post = require('../models/postModel')
@@ -46,11 +46,13 @@ const setPost = asyncHandler(async (req, res) => {
 // @route   DELETE /api/posts
 // @access  Private~?
 const deletePost = asyncHandler(async (req, res) => {
-    const post = await Post.findById(req.body.id)
 
-    await post.remove()
+    // Need to use postman raw json to test this endpoit btw not urlencoded lol (pce 1hr)
+    await Post.remove({postID: req.body.id})
 
-    res.status(200).json({message: 'POST REMOVED'})
+    res.status(200).json({ id: req.body.id})
+
+
 })
 
 
