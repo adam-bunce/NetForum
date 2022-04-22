@@ -11,4 +11,4 @@ export default function ScrollToTop() {
   return null;
 }
 
-// https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition, Saeed Rohani
+// https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition, yoinked

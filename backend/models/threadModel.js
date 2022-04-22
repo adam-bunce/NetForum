@@ -15,7 +15,6 @@ const threadSchema = new mongoose.Schema({
     threadID: {
         type: Number,
         required: [true, 'add a thread ID'],
-        // unique: true // makes it so thread/post locaitn wont get conufsed
     },
 })
 

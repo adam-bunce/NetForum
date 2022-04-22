@@ -24,8 +24,7 @@ export default class Post extends Component{
             
             postImage = 
                 <div className='dib' onClick={this.changeImageSize}> 
-                    <img id="image" className='mouseOverImage' src={this.props.postData.selectedFile} 
-                    width={this.state.image_size} alt="postImage" /> 
+                    <img id="image" className='mouseOverImage' src={this.props.postData.selectedFile} width={this.state.image_size} alt="postImage" /> 
                 </div>
         }else{
             postImage = <div></div>
@@ -40,7 +39,4 @@ export default class Post extends Component{
             
     )}
    
-
-
-
 }

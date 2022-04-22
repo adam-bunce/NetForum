@@ -1,28 +1,31 @@
 // dont need try or catches now cause of this
 const asyncHandler = require('express-async-handler');
-const { findById } = require('../models/postModel');
-
-// post schema/model
+// Post schema/model
 const Post = require('../models/postModel')
+
+// feels like i should have to import env here but it works without it?
 
 // @desc    Get all posts
 // @route   GET /api/posts
-// @access  Private~?
 const getPosts = asyncHandler(async (req, res) => {
 
     const posts = await Post.find(); // need await here or
     res.status(200).json(posts)
 })
 
+
 // @desc    create a post
 // @route   POST /api/posts
-// @access  Private~?
+// @req     {inThread: Number, postText: String, ~selectedFile: base64 image}
 const setPost = asyncHandler(async (req, res) => {
-    //const goals = await Goal.find({user: req.user.id})
-    
     if (!req.body.postText){
         res.status(400)
-        throw new Error('please enter post text')
+        throw new Error('ENTER POST TEXT')
+    }
+
+    if ( !(req.body.inThread || req.body.inThread === 0) ){
+        res.status(400)
+        throw new Error('ENTER POST THREAD NUMBER')
     }
 
     const post = await Post.create({
@@ -32,27 +35,25 @@ const setPost = asyncHandler(async (req, res) => {
         selectedFile: req.body.selectedFile || null
     })
 
-
-    // increase post ID count after new post has been created
     process.env.POSTCOUNT = (parseInt(process.env.POSTCOUNT) + 1).toString()
-
     res.status(200).json(post)
 })
 
-//TODO make it so only an admin account can delete posts 
-// ( i guess i can do it through postman but thats not ideal)
 
 // @desc    remove post
 // @route   DELETE /api/posts
-// @access  Private~?
+// @req     {id: Number}
 const deletePost = asyncHandler(async (req, res) => {
+    // when sending postman requests use raw json not x-www-form-urlencoded
 
-    // Need to use postman raw json to test this endpoit btw not urlencoded lol (pce 1hr)
+    if ( !(req.body.id || req.body.id === 0) ){
+        res.status(400)
+        throw new Error('ENTER ID OF POST TO DELETE')
+    }
+
     await Post.remove({postID: req.body.id})
 
-    res.status(200).json({ id: req.body.id})
-
-
+    res.status(200).json({message: "POST REMOVED", id: req.body.id})
 })
 
 

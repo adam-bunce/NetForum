@@ -1,16 +1,11 @@
-import './App.css';
 import axios from 'axios'
 import React, { Component }  from 'react'
-import {BrowserRouter , Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter , Routes, Route} from 'react-router-dom'
+import './App.css';
+
 import Header from './components/Header/Header'
-
-import PostForm from './components/postForm/PostForm'
 import Posts from './components/Posts/Posts'
-
-import ThreadForm from './components/threadForm/ThreadForm';
-import Thread from './components/Thread/Thread';
 import Threads from './components/Threads/Threads';
-
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
@@ -23,12 +18,11 @@ class App extends Component{
     this.getThreads = this.getThreads.bind(this);
   }
 
-  // gets posts from 'http://localhost:8000/posts using api call
+
   async getPosts(){
     try {
       const { data } = await axios.get("http://localhost:8000/api/posts")
       this.setState({posts: data})
-      console.log(data)
     } catch (error) {
       console.log(error.message);
     }
@@ -39,62 +33,50 @@ class App extends Component{
     try {
       const { data } = await axios.get("http://localhost:8000/api/threads")
       this.setState({threads: data})
-      console.log("thread data")
-      console.log(data)
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  // on page load try to get posts
+
   componentDidMount(){
     this.getPosts()
     this.getThreads()
   }
 
   render(){
-    
+    // render loading gif if the posts/threads havent been gotten
     if (!this.state.posts || !this.state.threads){
       return(
         <>
           <Header text="NetForum" />
           <div className='loadingData'>
-              <img src="output-onlinegiftools.gif" alt="loading Image"></img>
+              <img src="output-onlinegiftools.gif" alt="loading"></img>
           </div>
         </>)
 
     }
 
+    // render threads if posts/threads have been gotten
     return (
       <>
+        <BrowserRouter>
+          <Header text="NetForum" />
+          <ScrollToTop /> 
 
-          <BrowserRouter>
-            <Header text="NetForum"/>
+          <Routes>
+            <Route path="/" element={<Threads threadData = {this.state.threads}/>} />
 
-            <ScrollToTop /> 
-            <Routes>
+            {/* filter the posts being passed in to the posts prop by filter the json posts object based on the threadID (x.threadID) and the post's object's inThread attribute */}
+            {/* literally no clue what this does anymore ngl */}
+            {this.state.threads.map( x => <Route path={`/thread` + x.threadID} element={<Posts posts={this.state.posts.filter(post => post.inThread === x.threadID)} thread = {x}/>} />)}
+
+            {/* render if the path doesnt exist */}
+            <Route path="*" element={<img src="pageNotFound.gif" alt="page not found"/>} />
             
-              <Route path="/" element={<Threads threadData = {this.state.threads}/>} />
-
-
-
-          
-              {/* filter the posts being passed in to the posts prop by filter the json posts object basedon the threadID (x.threadID) and the post's object's inThread attribute */}
-              {this.state.threads.map( x => <Route path={`/thread` + x.threadID} element={<Posts posts={this.state.posts.filter(post => post.inThread == x.threadID)} thread = {x}/>} />)}
-
-
-
-
-              <Route path="*" element={<img src="21.gif"></img>} />
-            
-            </Routes>
-          </BrowserRouter>
-
-      
-          {/* <Threads threadData = {this.state.threads}/> */}
-        {/* <PostForm />
-        <Posts posts={this.state.posts} /> */}
-        </>
+          </Routes>
+        </BrowserRouter>
+      </>
       );
     } 
 }
