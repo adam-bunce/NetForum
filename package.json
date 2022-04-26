@@ -11,6 +11,7 @@
   "author": "Adam Bunce",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.78.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",

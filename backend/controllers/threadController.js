@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler')
 const Thread = require('../models/threadModel')
 const Post = require('../models/postModel')
 
+const awsHelper = require('../controllers/awsBucketController')
 
 // @desc    Get all threads
 // @route   GET /api/threads
@@ -28,9 +29,11 @@ const setThread = asyncHandler(async (req, res) => {
         await Post.remove({inThread: allThreads[0].threadID})
     }
 
+    awsHelper.addThreadImageToBucket(req.body.threadImage || null, process.env.THREADCOUNT)
+
     const thread = await Thread.create({
         threadText: req.body.threadText,
-        threadImage: req.body.threadImage || null,
+        threadImage: `${process.env.CLOUDFRONT_URL}thread${process.env.THREADCOUNT}.png` || null,
         threadID: process.env.THREADCOUNT
     })
 
