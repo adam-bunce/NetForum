@@ -21,7 +21,9 @@ class App extends Component{
 
   async getPosts(){
     try {
-      const { data } = await axios.get("http://localhost:8000/api/posts")
+      // https://adams-imageboard.herokuapp.com/
+      // http://localhost:8000/api/posts
+      const { data } = await axios.get("https://adams-imageboard.herokuapp.com/api/posts")
       this.setState({posts: data})
     } catch (error) {
       console.log(error.message);
@@ -31,7 +33,7 @@ class App extends Component{
 
   async getThreads(){
     try {
-      const { data } = await axios.get("http://localhost:8000/api/threads")
+      const { data } = await axios.get("https://adams-imageboard.herokuapp.com/api/threads")
       this.setState({threads: data})
     } catch (error) {
       console.log(error.message);
