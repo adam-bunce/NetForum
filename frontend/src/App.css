@@ -5,8 +5,9 @@
 
 
 html{
-  background-color: #C4C4C4;
+  background-color: #29605E;
   overflow-y:scroll; /* make scrollbar always visible */
+  cursor: url('../public/nat803.cur'), auto;	/* dino cursor */
 }
 
 .postsContainer{
@@ -24,6 +25,31 @@ html{
   justify-content: center;
   flex-direction: row;
 
+}
+
+.ntd{
+    text-decoration: none;
+  }
+
+.oldStyleBorders{
+    font-family: sans-serif;
+    text-align: left;
+    font-size: large;
+
+	border-top: 3px solid #FBFBFB;
+	border-left: 3px solid #FBFBFB;
+	border-right: 3px solid #080808;
+	border-bottom: 3px solid #000000;   
+    background-color: #CCCCCC;
+    width: min-content;
+    white-space: nowrap;
+
+    padding: 1% 1% 1% 1%;
+    margin: 1% 1% 1% 1%;
+}
+
+.oldStyleBorders:active{
+    background-color: #BFBFBF;
 }
 
 

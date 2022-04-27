@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const threadSchema = new mongoose.Schema({
     threadText: {
         type: String,
-        required: [true, 'add thread text'],
+        // required: [true, 'add thread text'],
     },
     threadImage: {
         type: String,

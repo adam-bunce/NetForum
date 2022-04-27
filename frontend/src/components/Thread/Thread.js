@@ -18,8 +18,8 @@ export default class Thread extends Component{
         return(
             <div className='threadBox mouseOverThread'>
                 {threadImage}
-                <div>{this.props.threadData.threadText}</div>
-                <div className='threadMetaData'> ID: {this.props.threadData.threadID} Created: {this.props.threadData.createdAt} </div>
+                <div className='ntd'>{this.props.threadData.threadText}</div>
+                <div className='threadMetaData ntd'> ID: {this.props.threadData.threadID} Created: {this.props.threadData.createdAt} </div>
             </div>
     )}
 

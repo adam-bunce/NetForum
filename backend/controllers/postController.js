@@ -2,16 +2,13 @@
 const asyncHandler = require('express-async-handler');
 // Post schema/model
 const Post = require('../models/postModel')
-
-
-const awsHelper = require('../controllers/awsBucketController')
+const awsHelper = require('../controllers/awsBucketController');
 
 // feels like i should have to import env here but it works without it?
 
 // @desc    Get all posts
 // @route   GET /api/posts
 const getPosts = asyncHandler(async (req, res) => {
-
     const posts = await Post.find(); // need await here or
     res.status(200).json(posts)
 })
@@ -21,9 +18,14 @@ const getPosts = asyncHandler(async (req, res) => {
 // @route   POST /api/posts
 // @req     {inThread: Number, postText: String, ~selectedFile: base64 image}
 const setPost = asyncHandler(async (req, res) => {
+    let postImage = null
+
+    // post must have text or a file
     if (!req.body.postText){
-        res.status(400)
-        throw new Error('ENTER POST TEXT')
+        if (!req.body.selectedFile){
+            res.status(400)
+            throw new Error('ENTER POST TEXT OR IMAGE')
+        }
     }
 
     if ( !(req.body.inThread || req.body.inThread === 0) ){
@@ -31,18 +33,18 @@ const setPost = asyncHandler(async (req, res) => {
         throw new Error('ENTER POST THREAD NUMBER')
     }
 
+
+    // add image to s3 bucket and generate image url to be added to mongodb post document
+    if (req.body.selectedFile != null ){
+        awsHelper.addPostImageToBucket( req.body.selectedFile, process.env.POSTCOUNT)
+        postImage = `${process.env.CLOUDFRONT_URL}post${process.env.POSTCOUNT}.png`
+    }
     
-    // create image in aws bucket
-    // generate url based on postID and cloudfront url
-    // set url toselected file
-    awsHelper.addPostImageToBucket( req.body.selectedFile || null, process.env.POSTCOUNT)
-
-
     const post = await Post.create({
         postID: process.env.POSTCOUNT,
         inThread: req.body.inThread,
         postText: req.body.postText,
-        selectedFile: `${process.env.CLOUDFRONT_URL}post${process.env.POSTCOUNT}.png` || null
+        selectedFile: postImage
     })
 
     process.env.POSTCOUNT = (parseInt(process.env.POSTCOUNT) + 1).toString()
@@ -54,7 +56,7 @@ const setPost = asyncHandler(async (req, res) => {
 // @route   DELETE /api/posts
 // @req     {id: Number}
 const deletePost = asyncHandler(async (req, res) => {
-    // when sending postman requests use raw json not x-www-form-urlencoded
+    // when sending postman requests use raw json not x-www-form-urlencoded!!
 
     if ( !(req.body.id || req.body.id === 0) ){
         res.status(400)

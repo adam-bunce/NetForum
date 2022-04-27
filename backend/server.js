@@ -5,6 +5,10 @@ const connectDB = require('./config/db')
 var bodyParser = require("body-parser");
 const cors = require('cors');
 
+
+// need to invalidate old CloudFront paths with (all is /*) when restarting the server otherwise 
+// images will display as old images if their post/thread numbers are the same
+
 connectDB()
 const app = express()
 

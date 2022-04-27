@@ -26,7 +26,7 @@ export default class Posts extends Component{
   render(){
     let threadImage;
     if (this.props.thread.threadImage){
-        threadImage = <div onClick={this.changeImageSize}> 
+        threadImage = <div className='image' onClick={this.changeImageSize}> 
                         <img id="image" className='mouseOverImage' src={this.props.thread.threadImage}  
                          width={this.state.image_size} alt="postImage" /> 
                       </div>
@@ -35,9 +35,11 @@ export default class Posts extends Component{
     return(
       <>
         <PostForm threadID = {this.props.thread.threadID}/>
-        <Header text={ `Posts In Thread ` + this.props.thread.threadID}/>
+        <Header text={ `Thread ` + this.props.thread.threadID}/>
         <div className='postsContainer'>
-          <Link  to="/"> [back to catalog]</Link>
+
+          <Link  to="/" className='oldStyleBorders ntd'>  [ back to catalog ]</Link>
+       
           <div className='borderBox'> 
 
             <div className='postMetaData'>

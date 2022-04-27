@@ -11,7 +11,7 @@ export default class Threads extends Component{
       return(
         <>
           <ThreadForm />
-          <Header text="Threads"/>
+          <Header text="Catalog"/>
 
           <div className='links'>
             {this.props.threadData.reverse().map( x => <Link className='linkStyle' to={`/thread` + x.threadID} ><Thread threadData = {x}/></Link>)}

@@ -23,7 +23,7 @@ export default class Post extends Component{
         if (this.props.postData.selectedFile != null){
             
             postImage = 
-                <div className='dib' onClick={this.changeImageSize}> 
+                <div className='dib image' onClick={this.changeImageSize}> 
                     <img id="image" className='mouseOverImage' src={this.props.postData.selectedFile} width={this.state.image_size} alt="postImage" /> 
                 </div>
         }else{
@@ -32,7 +32,7 @@ export default class Post extends Component{
 
         return(
             <div className='borderBox'>
-                <div className='postMetaData'>ID {this.props.postData.postID}, {this.props.postData.createdAt} , In Thread: {this.props.postData.inThread}</div>
+                <div className='postMetaData'>ID {this.props.postData.postID}, {this.props.postData.createdAt}</div>
                 <div>{this.props.postData.postText}</div>
                 {postImage}
             </div>

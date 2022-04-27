@@ -46,7 +46,7 @@ export default class PostForm extends Component{
               Add Post <br/>
               <input type="text" onChange={this.setInputtedTextToVariable}></input> <br/>
               <FileBase type='file' multiple={false} onDone={({base64}) => this.setState({filename: base64}) }/> <br/>
-              <input type="submit"  value="Post" onClick={this.createPost}></input>
+              <input  className='oldStyleBorders' type="submit"  value="Post" onClick={this.createPost}></input>
           </form>
         </div>
       )

@@ -11,8 +11,8 @@ const postSchema = mongoose.Schema({
     },
     postText: {
         type: String,
-        required: [true, 'post needs text'],
-        unique: true 
+        // required: [true, 'post needs text'],
+        // unique: true 
     },
     selectedFile: {
         type: String

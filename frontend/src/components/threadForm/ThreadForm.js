@@ -40,12 +40,12 @@ export default class ThreadForm extends Component{
 
   render(){
       return(
-        <div className='centerBox'>
+        <div className='centerBox'> 
           <form className='threadFormBox'>
               Create New Thread <br/>
               <input type="text" onChange={this.setInputtedTextToVariable}></input> <br/>
               <FileBase type='file' multiple={false} onDone={({base64}) => this.setState({filename: base64}) }/> <br/>
-              <input type="submit"  value="Post" onClick={this.createThread}></input>
+              <input className='oldStyleBorders' type="submit"  value="Post" onClick={this.createThread}></input>
           </form>
         </div>
       )

@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 15px;
     margin-bottom: 5%;
+    
   }
 
   .OP{
@@ -12,3 +13,8 @@
     text-decoration: none; /* underline element remove underline lol*/
     font-size: larger;
   }
+
+  .image{
+    margin-top: 1%;
+}
+
