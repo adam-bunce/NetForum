@@ -1,0 +1,29 @@
+{
+  "name": "messageboard",
+  "version": "1.0.0",
+  "description": "MERN simple messageboard website",
+  "main": "server.js",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.1.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "author": "Adam Bunce",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.78.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.2.11",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
