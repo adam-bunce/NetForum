@@ -20,7 +20,7 @@ export default class ThreadForm extends Component{
 
   async createThread(){
       try{
-          await axios.post("https://adams-imageboard.herokuapp.com//api/threads", {threadText: this.state.inputBoxText, threadImage: this.state.filename || null})
+          await axios.post("https://adams-imageboard.herokuapp.com/api/threads", {threadText: this.state.inputBoxText, threadImage: this.state.filename || null})
       }catch (error){
           console.log(error.message)
       }
