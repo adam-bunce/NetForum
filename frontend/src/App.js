@@ -34,7 +34,7 @@ class App extends Component{
   async getThreads(){
     try {
       const { data } = await axios.get("https://adams-imageboard.herokuapp.com/api/threads")
-      this.setState({threads: data})
+      this.setState({threads: data.reverse()})
     } catch (error) {
       console.log(error.message);
     }
