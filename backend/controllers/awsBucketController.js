@@ -29,12 +29,12 @@ function addPostImageToBucket(imageData, imageNumber){
     },
     (err, data) => {
         if(err) {
-        reject(err)
+
         return;
         }
         console.log("UPLOAD SUCCESSFULLY:") 
         console.log(data) 
-        resolve(data); 
+
     })
 
     
