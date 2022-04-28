@@ -2,7 +2,8 @@
 
 //import AWS from "@aws-sdk/client-s3"
 
-var AWS = require("@aws-sdk/client-s3");
+// should get creds from env var's
+var AWS = require("aws-sdk");
 
 //despite this being set up for .png it works with gifs and other images formats :?
 function addPostImageToBucket(imageData, imageNumber){
@@ -58,12 +59,12 @@ function addThreadImageToBucket(imageData, threadNumber){
     },
     (err, data) => {
         if(err) {
-        reject(err)
+        // reject(err)
         return;
         }
         console.log("UPLOAD SUCCESSFULLY:") 
         console.log(data) 
-        resolve(data); 
+       // resolve(data); 
     })
     
 }
