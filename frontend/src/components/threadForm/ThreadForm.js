@@ -45,7 +45,7 @@ export default class ThreadForm extends Component{
               Create New Thread <br/>
               <input type="text" onChange={this.setInputtedTextToVariable}></input> <br/>
               <FileBase type='file' multiple={false} onDone={({base64}) => this.setState({filename: base64}) }/> <br/>
-              <input className='oldStyleBorders' type="submit"  value="Post" onClick={this.createThread}></input>
+              <input className='oldStyleBorders' type="button"  value="Post" onClick={this.createThread}></input>
           </form>
         </div>
       )
