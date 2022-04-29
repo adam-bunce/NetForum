@@ -22,8 +22,9 @@ app.use('/api/threads', require('./routes/threadRoutes'))
 
 
 // get most recent post and thread to set env variable on start up b/c heroku doesnt save that );
-const mostRecentPost = Posts.find().limit(1).sort({$natural:-1})
-const mostRecentThread = Threads.find().limit(1).sort({$natural:-1})
+const mostRecentPost = Posts.findOne({}, {sort:{$natural:-1}})
+                   
+const mostRecentThread = Threads.findOne({}, {sort:{$natural:-1}})
 
 if (!mostRecentPost){
     process.env.POSTCOUNT = 1
