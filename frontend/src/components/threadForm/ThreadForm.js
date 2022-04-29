@@ -26,6 +26,8 @@ export default class ThreadForm extends Component{
           if (this.state.inputBoxText === ""){
             if (this.state.filename === ""){
               this.setState({postStatus: "add a file or text"})
+            }else{
+              this.setState({postStatus: "posting... (don't refresh)"})
             }
           }else{
             this.setState({postStatus: "posting... (don't refresh)"})

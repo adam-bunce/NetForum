@@ -12,7 +12,7 @@ export default class Threads extends Component{
         <>
           <ThreadForm />
           <Header text="Catalog"/>
-          <div className='postsContainer'>
+          <div className='threadsContainer'>
           <div ><Link  to={{}} className='oldStyleBorders ntd' onClick={() => window.location.reload()}>[ refresh ]</Link>  </div>
           </div>
 

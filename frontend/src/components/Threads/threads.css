@@ -33,7 +33,17 @@
   margin: 1% 1% 1% 1%;
   
 
+}
 
+
+.threadsContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 0%;
+  
 }
 
 
