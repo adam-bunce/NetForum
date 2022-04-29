@@ -1,7 +1,7 @@
 
 // check if the enviromental variables need to be updated 
 // when heroku sleeps they get reset which leads to issues 
-async function checkPosts(){
+const checkPosts = async () => {
     
     const mostRecentPost =  await Posts.find().limit(1).sort({$natural:-1})
                     
@@ -23,4 +23,4 @@ async function checkPosts(){
 }
 
 
-module.exports = {checkPosts}
+module.exports = checkPosts;

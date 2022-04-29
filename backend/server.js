@@ -21,8 +21,6 @@ app.use('/api/threads', require('./routes/threadRoutes'))
 
 
 // get most recent post and thread to set env variable on start up b/c heroku doesnt save that );
-
-
 checkPosts();
 
 
