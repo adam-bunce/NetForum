@@ -33,14 +33,14 @@ async function checkPosts(){
         process.env.POSTCOUNT = 1
         
     }else{
-        process.env.POSTCOUNT =  (mostRecentPost[0].postID)
+        process.env.POSTCOUNT =  (mostRecentPost[0].postID + 1)
     }
 
     if (!mostRecentThread[0]){
         process.env.THREADCOUNT = 1
         
     }else{
-        process.env.THREADCOUNT = (mostRecentThread[0].threadID)
+        process.env.THREADCOUNT = (mostRecentThread[0].threadID + 1)
     }
 }
 
