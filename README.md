@@ -6,7 +6,7 @@
 - media hosted on aws s3 bucket and delivered using cloudfront to minimize load times
 - rolling deletion of threads(and contained posts), maximum of 10 threads at a time
 - rolling deletion of aws s3 bucket content and mongodb atlas documents (i only have 500mb of storage lol)
-- backend hosted on Heroku, frontend hosted on Netlify
+- backend hosted on Heroku, frontend hosted on Netlify (Heroku sleeps after a while so starting the site might take a few seconds)
 
 ## Video
 
