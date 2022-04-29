@@ -9,7 +9,8 @@ export default class PostForm extends Component{
 
     this.state = {
         inputBoxText: '',
-        filename: ''
+        filename: '',
+        postStatus: '',
     }
 
     this.setInputtedTextToVariable = this.setInputtedTextToVariable.bind(this);
@@ -20,8 +21,19 @@ export default class PostForm extends Component{
 
   // create post using api call and information inputted into form
     async createPost(){
+
+
         try{
+          if (this.state.inputBoxText === ""){
+            if (this.state.filename === ""){
+              this.setState({postStatus: "add a file or text"})
+            }
+          }else{
+            this.setState({postStatus: "posting... (don't refresh)"})
+          }
+          // await isnt async, so this blocks the therad so we can do the status update on post timing here so the user doesnt refresh
             await axios.post("https://adams-imageboard.herokuapp.com/api/posts", {postText: this.state.inputBoxText, inThread: this.props.threadID, selectedFile: this.state.filename || null})
+            this.setState({postStatus: "posted"})
             
         }catch (error){
             console.log(error.message)
@@ -46,8 +58,10 @@ export default class PostForm extends Component{
               Add Post <br/>
               <input type="text" onChange={this.setInputtedTextToVariable}></input> <br/>
               <FileBase type='file' multiple={false} onDone={({base64}) => this.setState({filename: base64}) }/> <br/>
-              <input  className='oldStyleBorders' type="submit"  value="Post" onClick={this.createPost}></input>
+              <input  className='oldStyleBorders' type="button"  value="Post" onClick={this.createPost}></input>
+              {this.state.postStatus}
           </form>
+          
         </div>
       )
   }

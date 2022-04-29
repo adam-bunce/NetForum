@@ -12,8 +12,12 @@ export default class Threads extends Component{
         <>
           <ThreadForm />
           <Header text="Catalog"/>
+          <div className='postsContainer'>
+          <div ><Link  to={{}} className='oldStyleBorders ntd' onClick={() => window.location.reload()}>[ refresh ]</Link>  </div>
+          </div>
 
           <div className='links'>
+            
             {this.props.threadData.map( x => <Link className='linkStyle' to={`/thread` + x.threadID} ><Thread threadData = {x}/></Link>)}
           </div> 
         </>

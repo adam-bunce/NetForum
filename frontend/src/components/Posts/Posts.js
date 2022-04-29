@@ -37,9 +37,10 @@ export default class Posts extends Component{
         <PostForm threadID = {this.props.thread.threadID}/>
         <Header text={ `Thread ` + this.props.thread.threadID}/>
         <div className='postsContainer'>
-
+      <div>
+        <Link  to={{}} className='oldStyleBorders ntd' onClick={() => window.location.reload()}>  [ refresh ]</Link>     
           <Link  to="/" className='oldStyleBorders ntd'>  [ back to catalog ]</Link>
-       
+          </div>
           <div className='borderBox'> 
 
             <div className='postMetaData'>
