@@ -29,14 +29,14 @@ if (!mostRecentPost){
     process.env.POSTCOUNT = 1
     
 }else{
-    process.env.POSTCOUNT =  (mostRecentPost.postID).toString()
+    process.env.POSTCOUNT =  (mostRecentPost.postID)
 }
 
 if (!mostRecentThread){
     process.env.THREADCOUNT = 1
     
 }else{
-    process.env.THREADCOUNT = (mostRecentThread.threadID).toString()
+    process.env.THREADCOUNT = (mostRecentThread.threadID)
 }
 
 
