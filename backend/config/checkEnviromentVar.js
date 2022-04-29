@@ -1,4 +1,6 @@
 
+const Posts = require('../models/postModel')
+const Threads = require('../models/threadModel')
 // check if the enviromental variables need to be updated 
 // when heroku sleeps they get reset which leads to issues 
 const checkPosts = async () => {
