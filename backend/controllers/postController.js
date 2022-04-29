@@ -41,7 +41,7 @@ const setPost = asyncHandler(async (req, res) => {
     }
     
     // check if the postcount is accurate cause heroku going to sleep messes with it (resets it)
-    const mostRecentPost = Post.find().limit(1).sort({$natural:-1})
+    const mostRecentPost = Post.findOne()
     console.log(mostRecentPost)
     console.log('----------------most recent postID: '+ mostRecentPost.postID)
 
