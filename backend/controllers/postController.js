@@ -40,6 +40,15 @@ const setPost = asyncHandler(async (req, res) => {
         postImage = `${process.env.CLOUDFRONT_URL}post${process.env.POSTCOUNT}.png`
     }
     
+    // check if the postcount is accurate cause heroku going to sleep messes with it (resets it)
+    const mostRecentPost = Post.find().limit(1).sort({$natural:-1})
+
+
+    if (mostRecentPost.postID > parseInt(process.env.POSTCOUNT)){
+        
+        process.env.POSTCOUNT = (mostRecentPost.postID).toString()
+    }
+
     const post = await Post.create({
         postID: process.env.POSTCOUNT,
         inThread: req.body.inThread,
