@@ -26,15 +26,17 @@ const mostRecentPost = Posts.find().limit(1).sort({$natural:-1})
 const mostRecentThread = Threads.find().limit(1).sort({$natural:-1})
 
 if (!mostRecentPost){
-    process.env.POSTCOUNT =  (mostRecentPost.postID).toString()
-}else{
     process.env.POSTCOUNT = 1
+    
+}else{
+    process.env.POSTCOUNT =  (mostRecentPost.postID).toString()
 }
 
 if (!mostRecentThread){
-    process.env.THREADCOUNT = mostRecentThread.threadID
-}else{
     process.env.THREADCOUNT = 1
+    
+}else{
+    process.env.THREADCOUNT = (mostRecentThread.threadID).toString()
 }
 
 
