@@ -35,9 +35,13 @@ export default class PostForm extends Component{
             await axios.post("https://adams-imageboard.herokuapp.com/api/posts", {postText: this.state.inputBoxText, inThread: this.props.threadID, selectedFile: this.state.filename || null})
             this.setState({postStatus: "posted"})
             
+
+            
         }catch (error){
             console.log(error.message)
         }
+
+        this.setState({inputBoxText: ""})
   }
   
 
@@ -56,7 +60,7 @@ export default class PostForm extends Component{
         <div className='centerBox'>
           <form className='postFormBox'>
               Add Post <br/>
-              <input type="text" onChange={this.setInputtedTextToVariable}></input> <br/>
+              <input type="text" onChange={this.setInputtedTextToVariable} value={this.state.inputBoxText}></input> <br/>
               <FileBase type='file' multiple={false} onDone={({base64}) => this.setState({filename: base64}) }/> <br/>
               <input  className='oldStyleBorders' type="button"  value="Post" onClick={this.createPost}></input>
               {this.state.postStatus}
